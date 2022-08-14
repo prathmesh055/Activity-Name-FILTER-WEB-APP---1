@@ -1,4 +1,8 @@
+noseX=0;
+noseY=0;
+
 function preload()  {
+  clown_nose= loadImage('https://i.postimg.cc/RVhh06vR/mustache-student-math-favorite-for-friday-the-the-1.png');  
 }
 
 function setup(){
@@ -21,13 +25,20 @@ function gotposes(results)
 if(results.length > 0)
 {
 console.log(results);
-console.log("nose x = "+ results[0].pose.nose.x);
-console.log("nose y = "+ results[0].pose.nose.y);
+noseX= results[0].pose.nose.x;
+noseY= results[0].pose.nose.y;
+console.log("nose x = "+ noseX);
+console.log("nose y = "+ noseY);
 }
 }
 function draw()  {
     image(video, 0, 0, 300, 300);
+    //fill (225,0,0);
+    //stroke(225,0,0);
+    //circle(noseX,noseY, 25);
+    image(clown_nose, noseX-35, noseY+5, 80, 30)
 }
+
 
 function take_snapshot(){
     save('myFilterImage.png');
